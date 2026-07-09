@@ -1,0 +1,15 @@
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\DataConcentrator.dll.config
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\DataConcentrator.dll
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\DataConcentrator.pdb
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\EntityFramework.dll
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\PLCSimulator.dll
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\PLCSimulator.pdb
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\PLCSimulator.dll.config
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\EntityFramework.xml
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\obj\Debug\DataConcentrator.csproj.AssemblyReference.cache
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\obj\Debug\DataConcentrator.csproj.CoreCompileInputs.cache
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\obj\Debug\DataConc.AF26BFFF.Up2Date
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\obj\Debug\DataConcentrator.dll
+C:\Users\dusan\Desktop\psusudule\PSUSU_project\DataConcentrator\obj\Debug\DataConcentrator.pdb

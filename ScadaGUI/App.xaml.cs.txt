@@ -1,0 +1,68 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Threading;
+using DataConcentrator;
+
+namespace ScadaGUI
+{
+    public partial class App : Application
+    {
+        public App()
+        {
+            // Globalno hvatanje neuhvacenih izuzetaka - da ne bi aplikacija samo
+            // nestala bez traga (npr. ako LocalDB baza nije dostupna na startu).
+            DispatcherUnhandledException += App_DispatcherUnhandledException;
+            AppDomain.CurrentDomain.UnhandledException += App_AppDomainUnhandledException;
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            try
+            {
+                // Mora se pozvati na UI thread-u, pre pokretanja bilo kog scan thread-a,
+                // da bi Tag/Alarm PropertyChanged notifikacije mogle da se marshal-uju u GUI.
+                UISync.Capture();
+
+                DataConcentratorManager.Instance.LoadTagsFromDatabase();
+            }
+            catch (Exception ex)
+            {
+                ShowFatalError("Greska prilikom pokretanja aplikacije (OnStartup)", ex);
+                Shutdown();
+            }
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            PLC.StopSimulator();
+            base.OnExit(e);
+        }
+
+        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            ShowFatalError("Neuhvacen izuzetak (UI thread)", e.Exception);
+            e.Handled = true;
+        }
+
+        private void App_AppDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            ShowFatalError("Neuhvacen izuzetak (background thread)", e.ExceptionObject as Exception);
+        }
+
+        private void ShowFatalError(string context, Exception ex)
+        {
+            string message = ex == null
+                ? context
+                : $"{context}:\n\n{ex.GetType().Name}: {ex.Message}\n\n{ex.StackTrace}";
+
+            if (ex?.InnerException != null)
+            {
+                message += $"\n\n--- Inner exception ---\n{ex.InnerException.GetType().Name}: {ex.InnerException.Message}\n\n{ex.InnerException.StackTrace}";
+            }
+
+            MessageBox.Show(message, "Fatalna greska", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+}

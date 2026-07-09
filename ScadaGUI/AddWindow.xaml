@@ -1,0 +1,89 @@
+﻿<Window x:Class="ScadaGUI.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:ScadaGUI.Localization"
+        Title="{loc:Loc AddWindowTitle}" Height="480" Width="420"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="15">
+
+            <TextBlock Text="{loc:Loc TypeLabel}" ToolTip="{loc:Loc TypeLabelTooltip}" FontWeight="Bold" Margin="0,0,0,4"/>
+            <ComboBox x:Name="TypeCombo" SelectionChanged="TypeCombo_SelectionChanged"
+                      ToolTip="{loc:Loc TypeLabelTooltip}" Margin="0,0,0,10"/>
+
+
+            <StackPanel x:Name="CommonTagPanel">
+                <TextBlock Text="{loc:Loc TagNameLabel}" ToolTip="{loc:Loc TagNameLabelTooltip}"/>
+                <TextBox x:Name="NameBox" ToolTip="{loc:Loc TagNameLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc DescriptionColumn}"/>
+                <TextBox x:Name="DescriptionBox" ToolTip="{loc:Loc DescriptionColumn}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc IOAddressLabel}" ToolTip="{loc:Loc IOAddressLabelTooltip}"/>
+                <TextBox x:Name="IOAddressBox" ToolTip="{loc:Loc IOAddressLabelTooltip}" Margin="0,0,0,8"/>
+            </StackPanel>
+
+
+            <StackPanel x:Name="InputPanel">
+                <TextBlock Text="{loc:Loc ScanTimeLabel}" ToolTip="{loc:Loc ScanTimeLabelTooltip}"/>
+                <TextBox x:Name="ScanTimeBox" Text="1000" ToolTip="{loc:Loc ScanTimeLabelTooltip}" Margin="0,0,0,8"/>
+
+                <CheckBox x:Name="OnScanCheck" Content="{loc:Loc OnScanLabel}" ToolTip="{loc:Loc OnScanLabelTooltip}" Margin="0,0,0,8"/>
+            </StackPanel>
+
+
+            <StackPanel x:Name="AnalogInputPanel">
+                <TextBlock Text="{loc:Loc LowLimitLabel}" ToolTip="{loc:Loc LowLimitLabelTooltip}"/>
+                <TextBox x:Name="LowLimitBox" ToolTip="{loc:Loc LowLimitLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc HighLimitLabel}" ToolTip="{loc:Loc HighLimitLabelTooltip}"/>
+                <TextBox x:Name="HighLimitBox" ToolTip="{loc:Loc HighLimitLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc UnitsLabel}" ToolTip="{loc:Loc UnitsLabelTooltip}"/>
+                <TextBox x:Name="UnitsBox" ToolTip="{loc:Loc UnitsLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc DeadbandLabel}" ToolTip="{loc:Loc DeadbandLabelTooltip}"/>
+                <TextBox x:Name="DeadbandBox" Text="0" ToolTip="{loc:Loc DeadbandLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc HysteresisLabel}" ToolTip="{loc:Loc HysteresisLabelTooltip}"/>
+                <TextBox x:Name="HysteresisBox" Text="0" ToolTip="{loc:Loc HysteresisLabelTooltip}" Margin="0,0,0,8"/>
+            </StackPanel>
+
+
+            <StackPanel x:Name="OutputPanel">
+                <TextBlock Text="{loc:Loc InitialValueLabel}" ToolTip="{loc:Loc InitialValueLabelTooltip}"/>
+                <TextBox x:Name="InitialValueBox" Text="0" ToolTip="{loc:Loc InitialValueLabelTooltip}" Margin="0,0,0,8"/>
+            </StackPanel>
+
+
+            <StackPanel x:Name="AlarmPanel">
+                <TextBlock Text="{loc:Loc AlarmNameLabel}" ToolTip="{loc:Loc AlarmNameLabelTooltip}"/>
+                <TextBox x:Name="AlarmNameBox" ToolTip="{loc:Loc AlarmNameLabelTooltip}" Margin="0,0,0,8"/>
+                <TextBlock Text="{loc:Loc AnalogInputLabel}" ToolTip="{loc:Loc AnalogInputLabelTooltip}"/>
+                <ComboBox x:Name="AnalogInputCombo" ToolTip="{loc:Loc AnalogInputLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc LimitValueLabel}" ToolTip="{loc:Loc LimitValueLabelTooltip}"/>
+                <TextBox x:Name="LimitValueBox" ToolTip="{loc:Loc LimitValueLabelTooltip}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="{loc:Loc DirectionLabel}" ToolTip="{loc:Loc DirectionLabelTooltip}"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                    <RadioButton x:Name="AboveRadio" Content="{loc:Loc AboveOption}" GroupName="Direction" IsChecked="True" Margin="0,0,15,0"/>
+                    <RadioButton x:Name="BelowRadio" Content="{loc:Loc BelowOption}" GroupName="Direction"/>
+                </StackPanel>
+
+                <TextBlock Text="{loc:Loc MessageLabel}" ToolTip="{loc:Loc MessageLabelTooltip}"/>
+                <TextBox x:Name="AlarmMessageBox" ToolTip="{loc:Loc MessageLabelTooltip}" Margin="0,0,0,8"/>
+            </StackPanel>
+
+            <TextBlock x:Name="ErrorText" Foreground="Red" TextWrapping="Wrap" Margin="0,5,0,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button x:Name="SaveButton" Content="{loc:Loc SaveButton}" ToolTip="{loc:Loc SaveButtonTooltip}"
+                        Width="90" Margin="0,0,10,0" Click="SaveButton_Click"/>
+                <Button x:Name="CancelButton" Content="{loc:Loc CancelButton}" ToolTip="{loc:Loc CancelButtonTooltip}"
+                        Width="90" Click="CancelButton_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>
