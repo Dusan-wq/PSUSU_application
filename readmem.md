@@ -93,7 +93,3 @@ Localization is implemented through runtime configuration, without restart, via 
 - Check the XAML `x:Static` references to `dc:TagType.AI` and `dc:AlarmState.Active`. If Visual Studio does not recognize the namespace, verify that `assembly=DataConcentrator` in `xmlns:dc` matches the actual `AssemblyName` — currently it is `DataConcentrator`.
 - `DataGridTemplateColumn` binding `Type` (enum) versus `x:Static`: if the XAML parser reports an issue with enum value comparison, the alternative is an `IValueConverter`.
 - `DropCreateDatabaseIfModelChanges` means the database will be deleted and recreated if the model changes. This is acceptable during development, but before the defense, care should be taken not to lose test data unnecessarily.
-
-## License
-
-[Specify a license, e.g. MIT]
